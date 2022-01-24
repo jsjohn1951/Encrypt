@@ -6,7 +6,7 @@
 /*   By: wismith <wismith@42ABUDHABI.AE>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 12:14:15 by wismith           #+#    #+#             */
-/*   Updated: 2022/01/23 12:22:41 by wismith          ###   ########.fr       */
+/*   Updated: 2022/01/24 18:08:36 by wismith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ char	*ft_hex(char *res, unsigned int num)
 	i = 0;
 	while (num > 0)
 	{
-		rem = num % 18;
+		rem = num % 23;
 		if (rem < 10)
 			res[i] = rem + 48;
 		if (rem > 9)
 			res[i] = rem + 55;
 		i++;
-		num /= 18;
+		num /= 23;
 	}
 	res[i] = '\0';
 	return (res);

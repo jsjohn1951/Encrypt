@@ -6,7 +6,7 @@
 /*   By: wismith <wismith@42ABUDHABI.AE>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 16:12:23 by wismith           #+#    #+#             */
-/*   Updated: 2022/01/24 17:19:44 by wismith          ###   ########.fr       */
+/*   Updated: 2022/01/24 17:55:38 by wismith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 
 	i = 5;
 	fd = open("txt/Decrypted.txt", O_RDONLY);
-	fd2 = open("txt/encrypted.txt", O_WRONLY);
+	fd2 = open("txt/encrypted.txt", O_WRONLY | O_CREAT);
 	banner();
 	printf("\x1B[33m\n\tEncrypting file\n\n");
 	while (i-- > 0)
