@@ -6,7 +6,7 @@
 /*   By: wismith <wismith@42ABUDHABI.AE>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 16:12:23 by wismith           #+#    #+#             */
-/*   Updated: 2022/01/24 17:55:38 by wismith          ###   ########.fr       */
+/*   Updated: 2022/01/25 20:16:14 by wismith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,11 @@ int	main(void)
 	char	*s;
 	int		i;
 
-	i = 5;
+	i = 1;
 	fd = open("txt/Decrypted.txt", O_RDONLY);
 	fd2 = open("txt/encrypted.txt", O_WRONLY | O_CREAT);
 	banner();
-	printf("\x1B[33m\n\tEncrypting file\n\n");
-	while (i-- > 0)
-	{
-		if (i % 2 == 0)
-			printf("\x1B[36m.\t.\t   .\t   .\n");
-		else
-			printf("\t\x1B[35m--Building--\n");
-		sleep(1);
-	}
-	printf("\x1B[32m\nFinished Encryption\nCheck Decrypted.txt\n\n");
+	printf("\x1B[33m\n\tEncrypting ID's\n\n\x1B[36m.\t.\t   .\t   .\n");
 	s = get_next_line(fd);
 	write_encrypt(s, encrypt(s), fd2);
 	while (s)
@@ -42,6 +33,13 @@ int	main(void)
 			break ;
 		write_encrypt(s, encrypt(s), fd2);
 		free (s);
+		if (i % 2 == 0)
+			printf("\x1B[36m.\t.\t   .\t   .\n");
+		else
+			printf("\t\x1B[35m--Building--\n");
+		sleep(1);
+		i++;
 	}
+	printf("\x1B[32m\nFinished Encryption\nCheck Decrypted.txt\n\n");
 	return (0);
 }
